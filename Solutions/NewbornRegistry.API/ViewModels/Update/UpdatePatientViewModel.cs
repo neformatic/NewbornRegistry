@@ -17,7 +17,7 @@ public class UpdatePatientViewModelValidator : AbstractValidator<UpdatePatientVi
     {
         RuleFor(x => x.Name.Family)
             .NotEmpty()
-            .WithMessage("Family name is required.");
+            .WithMessage("Family is required.");
 
         RuleFor(x => x.BirthDate)
             .NotEmpty()
@@ -28,6 +28,6 @@ public class UpdatePatientViewModelValidator : AbstractValidator<UpdatePatientVi
         RuleFor(x => x.Gender)
             .IsInEnum()
             .When(x => x.Gender.HasValue)
-            .WithMessage("Gender must be one of: Male, Female, Other, Unknown.");
+            .WithMessage("Invalid gender ID. Expected one of: 1 (Male), 2 (Female), 3 (Other), 4 (Unknown).");
     }
 }
