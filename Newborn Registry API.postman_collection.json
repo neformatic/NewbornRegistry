@@ -1,0 +1,2986 @@
+{
+	"info": {
+		"_postman_id": "5c2dc1e3-5fe2-4552-8f21-17d553e66701",
+		"name": "Newborn Registry API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9519693"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "Patients",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "Получение пациента по ID",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Patients/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Patients",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "{{patient_id}}",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Пациент найден",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Patients/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Patients",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"name\": {\n    \"id\": \"<uuid>\",\n    \"use\": \"<string>\",\n    \"family\": \"<string>\",\n    \"given\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"gender\": \"<string>\",\n  \"birthDate\": \"<dateTime>\",\n  \"active\": \"<boolean>\"\n}"
+										},
+										{
+											"name": "Пациент не найден",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/Patients/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Patients",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "Обновление данных пациента по ID",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": {\n    \"use\": \"official\",\n    \"family\": \"Lost\",\n    \"given\": [\n      \"Ilona\",\n      \"Vasileva\"\n    ]\n  },\n  \"gender\": 2,\n  \"birthDate\": \"2023-01-15\",\n  \"active\": true\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Patients/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Patients",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "{{patient_id}}",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Пациент обновлён",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"name\": {\n    \"use\": \"<string>\",\n    \"family\": \"<string>\",\n    \"given\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"gender\": 2,\n  \"birthDate\": \"<dateTime>\",\n  \"active\": \"<boolean>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Patients/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Patients",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"name\": {\n    \"id\": \"<uuid>\",\n    \"use\": \"<string>\",\n    \"family\": \"<string>\",\n    \"given\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"gender\": \"<string>\",\n  \"birthDate\": \"<dateTime>\",\n  \"active\": \"<boolean>\"\n}"
+										},
+										{
+											"name": "Ошибка валидации",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"name\": {\n    \"use\": \"<string>\",\n    \"family\": \"<string>\",\n    \"given\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"gender\": 2,\n  \"birthDate\": \"<dateTime>\",\n  \"active\": \"<boolean>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Patients/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Patients",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<string>\",\n  \"errors\": {\n    \"dolore_c\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}"
+										},
+										{
+											"name": "Пациент не найден",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"name\": {\n    \"use\": \"<string>\",\n    \"family\": \"<string>\",\n    \"given\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"gender\": 2,\n  \"birthDate\": \"<dateTime>\",\n  \"active\": \"<boolean>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Patients/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Patients",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "Невозможность обновления пациента с пустым значением family",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": {\n    \"use\": \"official\",\n    \"family\": \"\",\n    \"given\": [\n      \"Ilona\",\n      \"Vasileva\"\n    ]\n  },\n  \"gender\": 2,\n  \"birthDate\": \"2023-01-15\",\n  \"active\": true\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Patients/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Patients",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "{{patient_id}}",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Пациент обновлён",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"name\": {\n    \"use\": \"<string>\",\n    \"family\": \"<string>\",\n    \"given\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"gender\": 2,\n  \"birthDate\": \"<dateTime>\",\n  \"active\": \"<boolean>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Patients/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Patients",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"name\": {\n    \"id\": \"<uuid>\",\n    \"use\": \"<string>\",\n    \"family\": \"<string>\",\n    \"given\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"gender\": \"<string>\",\n  \"birthDate\": \"<dateTime>\",\n  \"active\": \"<boolean>\"\n}"
+										},
+										{
+											"name": "Ошибка валидации",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"name\": {\n    \"use\": \"<string>\",\n    \"family\": \"<string>\",\n    \"given\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"gender\": 2,\n  \"birthDate\": \"<dateTime>\",\n  \"active\": \"<boolean>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Patients/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Patients",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<string>\",\n  \"errors\": {\n    \"dolore_c\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}"
+										},
+										{
+											"name": "Пациент не найден",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"name\": {\n    \"use\": \"<string>\",\n    \"family\": \"<string>\",\n    \"given\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"gender\": 2,\n  \"birthDate\": \"<dateTime>\",\n  \"active\": \"<boolean>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Patients/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Patients",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "Невозможность обновления пациента со значением family = null",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": {\n    \"use\": \"official\",\n    \"family\": null,\n    \"given\": [\n      \"Ilona\",\n      \"Vasileva\"\n    ]\n  },\n  \"gender\": 2,\n  \"birthDate\": \"2023-01-15\",\n  \"active\": true\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Patients/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Patients",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "{{patient_id}}",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Пациент обновлён",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"name\": {\n    \"use\": \"<string>\",\n    \"family\": \"<string>\",\n    \"given\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"gender\": 2,\n  \"birthDate\": \"<dateTime>\",\n  \"active\": \"<boolean>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Patients/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Patients",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"name\": {\n    \"id\": \"<uuid>\",\n    \"use\": \"<string>\",\n    \"family\": \"<string>\",\n    \"given\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"gender\": \"<string>\",\n  \"birthDate\": \"<dateTime>\",\n  \"active\": \"<boolean>\"\n}"
+										},
+										{
+											"name": "Ошибка валидации",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"name\": {\n    \"use\": \"<string>\",\n    \"family\": \"<string>\",\n    \"given\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"gender\": 2,\n  \"birthDate\": \"<dateTime>\",\n  \"active\": \"<boolean>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Patients/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Patients",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<string>\",\n  \"errors\": {\n    \"dolore_c\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}"
+										},
+										{
+											"name": "Пациент не найден",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"name\": {\n    \"use\": \"<string>\",\n    \"family\": \"<string>\",\n    \"given\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"gender\": 2,\n  \"birthDate\": \"<dateTime>\",\n  \"active\": \"<boolean>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Patients/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Patients",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "Удаление пациента по ID",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Patients/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Patients",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "{{patient_id}}",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Пациент удалён",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/Patients/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Patients",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Пациент не найден",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/Patients/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Patients",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Создание нового пациента",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"if (pm.response.code === 200) {\r",
+											"    const responseData = pm.response.json();\r",
+											"        const patientId = responseData.name.id;\r",
+											"        pm.collectionVariables.set(\"patient_id\", patientId);\r",
+											"        console.log(\"Patient_id:\", patientId);\r",
+											"} else {\r",
+											"    console.log(\"Response code is not 200, skipping variable setting\");\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": {\n    \"use\": \"official\",\n    \"family\": \"Иванов\",\n    \"given\": [\n      \"Иван\",\n      \"Иванович\"\n    ]\n  },\n  \"gender\": 1,\n  \"birthDate\": \"2023-01-15\",\n  \"active\": true\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Patients",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Patients"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Пациент успешно создан",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": {\n    \"use\": \"<string>\",\n    \"family\": \"<string>\",\n    \"given\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"gender\": 2,\n  \"birthDate\": \"<dateTime>\",\n  \"active\": \"<boolean>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Patients",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Patients"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"name\": {\n    \"id\": \"<uuid>\",\n    \"use\": \"<string>\",\n    \"family\": \"<string>\",\n    \"given\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"gender\": \"<string>\",\n  \"birthDate\": \"<dateTime>\",\n  \"active\": \"<boolean>\"\n}"
+								},
+								{
+									"name": "Ошибка валидации",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": {\n    \"use\": \"<string>\",\n    \"family\": \"<string>\",\n    \"given\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"gender\": 2,\n  \"birthDate\": \"<dateTime>\",\n  \"active\": \"<boolean>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Patients",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Patients"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<string>\",\n  \"errors\": {\n    \"dolore_c\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}"
+								}
+							]
+						},
+						{
+							"name": "Невозможность создания пациента с пустым значением family",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": {\n    \"use\": \"official\",\n    \"family\": \"\",\n    \"given\": [\n      \"Иван\",\n      \"Иванович\"\n    ]\n  },\n  \"gender\": 1,\n  \"birthDate\": \"2023-01-14\",\n  \"active\": true\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Patients",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Patients"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Пациент успешно создан",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": {\n    \"use\": \"<string>\",\n    \"family\": \"<string>\",\n    \"given\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"gender\": 2,\n  \"birthDate\": \"<dateTime>\",\n  \"active\": \"<boolean>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Patients",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Patients"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"name\": {\n    \"id\": \"<uuid>\",\n    \"use\": \"<string>\",\n    \"family\": \"<string>\",\n    \"given\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"gender\": \"<string>\",\n  \"birthDate\": \"<dateTime>\",\n  \"active\": \"<boolean>\"\n}"
+								},
+								{
+									"name": "Ошибка валидации",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": {\n    \"use\": \"<string>\",\n    \"family\": \"<string>\",\n    \"given\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"gender\": 2,\n  \"birthDate\": \"<dateTime>\",\n  \"active\": \"<boolean>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Patients",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Patients"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<string>\",\n  \"errors\": {\n    \"dolore_c\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}"
+								}
+							]
+						},
+						{
+							"name": "Невозможность создания пациента со значением family = null",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": {\n    \"use\": \"official\",\n    \"family\": null,\n    \"given\": [\n      \"Иван\",\n      \"Иванович\"\n    ]\n  },\n  \"gender\": 1,\n  \"birthDate\": \"2023-01-14\",\n  \"active\": true\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Patients",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Patients"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Пациент успешно создан",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": {\n    \"use\": \"<string>\",\n    \"family\": \"<string>\",\n    \"given\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"gender\": 2,\n  \"birthDate\": \"<dateTime>\",\n  \"active\": \"<boolean>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Patients",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Patients"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"name\": {\n    \"id\": \"<uuid>\",\n    \"use\": \"<string>\",\n    \"family\": \"<string>\",\n    \"given\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"gender\": \"<string>\",\n  \"birthDate\": \"<dateTime>\",\n  \"active\": \"<boolean>\"\n}"
+								},
+								{
+									"name": "Ошибка валидации",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": {\n    \"use\": \"<string>\",\n    \"family\": \"<string>\",\n    \"given\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"gender\": 2,\n  \"birthDate\": \"<dateTime>\",\n  \"active\": \"<boolean>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Patients",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Patients"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<string>\",\n  \"errors\": {\n    \"dolore_c\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}"
+								}
+							]
+						},
+						{
+							"name": "Невозможность создания пациента со значением birthDate = не наступившей дате",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": {\n    \"use\": \"official\",\n    \"family\": \"Иванов\",\n    \"given\": [\n      \"Иван\",\n      \"Иванович\"\n    ]\n  },\n  \"gender\": 1,\n  \"birthDate\": \"2027-02-15\",\n  \"active\": true\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Patients",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Patients"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Пациент успешно создан",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": {\n    \"use\": \"<string>\",\n    \"family\": \"<string>\",\n    \"given\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"gender\": 2,\n  \"birthDate\": \"<dateTime>\",\n  \"active\": \"<boolean>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Patients",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Patients"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"name\": {\n    \"id\": \"<uuid>\",\n    \"use\": \"<string>\",\n    \"family\": \"<string>\",\n    \"given\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"gender\": \"<string>\",\n  \"birthDate\": \"<dateTime>\",\n  \"active\": \"<boolean>\"\n}"
+								},
+								{
+									"name": "Ошибка валидации",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": {\n    \"use\": \"<string>\",\n    \"family\": \"<string>\",\n    \"given\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"gender\": 2,\n  \"birthDate\": \"<dateTime>\",\n  \"active\": \"<boolean>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Patients",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Patients"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<string>\",\n  \"errors\": {\n    \"dolore_c\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}"
+								}
+							]
+						},
+						{
+							"name": "Невозможность создания пациента со значением gender не из справочника",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": {\n    \"use\": \"official\",\n    \"family\": \"Иванов\",\n    \"given\": [\n      \"Иван\",\n      \"Иванович\"\n    ]\n  },\n  \"gender\": 5,\n  \"birthDate\": \"2023-02-15\",\n  \"active\": true\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Patients",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Patients"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Пациент успешно создан",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": {\n    \"use\": \"<string>\",\n    \"family\": \"<string>\",\n    \"given\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"gender\": 2,\n  \"birthDate\": \"<dateTime>\",\n  \"active\": \"<boolean>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Patients",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Patients"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"name\": {\n    \"id\": \"<uuid>\",\n    \"use\": \"<string>\",\n    \"family\": \"<string>\",\n    \"given\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"gender\": \"<string>\",\n  \"birthDate\": \"<dateTime>\",\n  \"active\": \"<boolean>\"\n}"
+								},
+								{
+									"name": "Ошибка валидации",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": {\n    \"use\": \"<string>\",\n    \"family\": \"<string>\",\n    \"given\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"gender\": 2,\n  \"birthDate\": \"<dateTime>\",\n  \"active\": \"<boolean>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Patients",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Patients"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<string>\",\n  \"errors\": {\n    \"dolore_c\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}"
+								}
+							]
+						},
+						{
+							"name": "Получение всех пациентов",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/Patients",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Patients"
+									],
+									"query": [
+										{
+											"key": "birthDate",
+											"value": "<string>",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Список пациентов",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Patients?birthDate=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Patients"
+											],
+											"query": [
+												{
+													"key": "birthDate",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"name\": {\n      \"id\": \"<uuid>\",\n      \"use\": \"<string>\",\n      \"family\": \"<string>\",\n      \"given\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"gender\": \"<string>\",\n    \"birthDate\": \"<dateTime>\",\n    \"active\": \"<boolean>\"\n  },\n  {\n    \"name\": {\n      \"id\": \"<uuid>\",\n      \"use\": \"<string>\",\n      \"family\": \"<string>\",\n      \"given\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"gender\": \"<string>\",\n    \"birthDate\": \"<dateTime>\",\n    \"active\": \"<boolean>\"\n  }\n]"
+								},
+								{
+									"name": "Неверный формат параметра",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Patients?birthDate=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Patients"
+											],
+											"query": [
+												{
+													"key": "birthDate",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Внутренняя ошибка сервера",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Patients?birthDate=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Patients"
+											],
+											"query": [
+												{
+													"key": "birthDate",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Получение пациентов по фильтру birthDate: eq",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/Patients?birthDate=eq2023-01-16",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Patients"
+									],
+									"query": [
+										{
+											"key": "birthDate",
+											"value": "eq2023-01-16"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Список пациентов",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Patients?birthDate=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Patients"
+											],
+											"query": [
+												{
+													"key": "birthDate",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"name\": {\n      \"id\": \"<uuid>\",\n      \"use\": \"<string>\",\n      \"family\": \"<string>\",\n      \"given\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"gender\": \"<string>\",\n    \"birthDate\": \"<dateTime>\",\n    \"active\": \"<boolean>\"\n  },\n  {\n    \"name\": {\n      \"id\": \"<uuid>\",\n      \"use\": \"<string>\",\n      \"family\": \"<string>\",\n      \"given\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"gender\": \"<string>\",\n    \"birthDate\": \"<dateTime>\",\n    \"active\": \"<boolean>\"\n  }\n]"
+								},
+								{
+									"name": "Неверный формат параметра",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Patients?birthDate=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Patients"
+											],
+											"query": [
+												{
+													"key": "birthDate",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Внутренняя ошибка сервера",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Patients?birthDate=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Patients"
+											],
+											"query": [
+												{
+													"key": "birthDate",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Получение пациентов по фильтру birthDate: ne",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/Patients?birthDate=ne2023-01-15",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Patients"
+									],
+									"query": [
+										{
+											"key": "birthDate",
+											"value": "ne2023-01-15"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Список пациентов",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Patients?birthDate=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Patients"
+											],
+											"query": [
+												{
+													"key": "birthDate",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"name\": {\n      \"id\": \"<uuid>\",\n      \"use\": \"<string>\",\n      \"family\": \"<string>\",\n      \"given\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"gender\": \"<string>\",\n    \"birthDate\": \"<dateTime>\",\n    \"active\": \"<boolean>\"\n  },\n  {\n    \"name\": {\n      \"id\": \"<uuid>\",\n      \"use\": \"<string>\",\n      \"family\": \"<string>\",\n      \"given\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"gender\": \"<string>\",\n    \"birthDate\": \"<dateTime>\",\n    \"active\": \"<boolean>\"\n  }\n]"
+								},
+								{
+									"name": "Неверный формат параметра",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Patients?birthDate=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Patients"
+											],
+											"query": [
+												{
+													"key": "birthDate",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Внутренняя ошибка сервера",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Patients?birthDate=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Patients"
+											],
+											"query": [
+												{
+													"key": "birthDate",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Получение пациентов по фильтру birthDate: gt",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/Patients?birthDate=gt2023-01-14",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Patients"
+									],
+									"query": [
+										{
+											"key": "birthDate",
+											"value": "gt2023-01-14"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Список пациентов",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Patients?birthDate=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Patients"
+											],
+											"query": [
+												{
+													"key": "birthDate",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"name\": {\n      \"id\": \"<uuid>\",\n      \"use\": \"<string>\",\n      \"family\": \"<string>\",\n      \"given\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"gender\": \"<string>\",\n    \"birthDate\": \"<dateTime>\",\n    \"active\": \"<boolean>\"\n  },\n  {\n    \"name\": {\n      \"id\": \"<uuid>\",\n      \"use\": \"<string>\",\n      \"family\": \"<string>\",\n      \"given\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"gender\": \"<string>\",\n    \"birthDate\": \"<dateTime>\",\n    \"active\": \"<boolean>\"\n  }\n]"
+								},
+								{
+									"name": "Неверный формат параметра",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Patients?birthDate=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Patients"
+											],
+											"query": [
+												{
+													"key": "birthDate",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Внутренняя ошибка сервера",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Patients?birthDate=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Patients"
+											],
+											"query": [
+												{
+													"key": "birthDate",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Получение пациентов по фильтру birthDate: lt",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/Patients?birthDate=lt2023-01-16",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Patients"
+									],
+									"query": [
+										{
+											"key": "birthDate",
+											"value": "lt2023-01-16"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Список пациентов",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Patients?birthDate=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Patients"
+											],
+											"query": [
+												{
+													"key": "birthDate",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"name\": {\n      \"id\": \"<uuid>\",\n      \"use\": \"<string>\",\n      \"family\": \"<string>\",\n      \"given\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"gender\": \"<string>\",\n    \"birthDate\": \"<dateTime>\",\n    \"active\": \"<boolean>\"\n  },\n  {\n    \"name\": {\n      \"id\": \"<uuid>\",\n      \"use\": \"<string>\",\n      \"family\": \"<string>\",\n      \"given\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"gender\": \"<string>\",\n    \"birthDate\": \"<dateTime>\",\n    \"active\": \"<boolean>\"\n  }\n]"
+								},
+								{
+									"name": "Неверный формат параметра",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Patients?birthDate=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Patients"
+											],
+											"query": [
+												{
+													"key": "birthDate",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Внутренняя ошибка сервера",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Patients?birthDate=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Patients"
+											],
+											"query": [
+												{
+													"key": "birthDate",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Получение пациентов по фильтру birthDate: ge",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/Patients?birthDate=ge2023-01-14",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Patients"
+									],
+									"query": [
+										{
+											"key": "birthDate",
+											"value": "ge2023-01-14"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Список пациентов",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Patients?birthDate=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Patients"
+											],
+											"query": [
+												{
+													"key": "birthDate",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"name\": {\n      \"id\": \"<uuid>\",\n      \"use\": \"<string>\",\n      \"family\": \"<string>\",\n      \"given\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"gender\": \"<string>\",\n    \"birthDate\": \"<dateTime>\",\n    \"active\": \"<boolean>\"\n  },\n  {\n    \"name\": {\n      \"id\": \"<uuid>\",\n      \"use\": \"<string>\",\n      \"family\": \"<string>\",\n      \"given\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"gender\": \"<string>\",\n    \"birthDate\": \"<dateTime>\",\n    \"active\": \"<boolean>\"\n  }\n]"
+								},
+								{
+									"name": "Неверный формат параметра",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Patients?birthDate=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Patients"
+											],
+											"query": [
+												{
+													"key": "birthDate",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Внутренняя ошибка сервера",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Patients?birthDate=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Patients"
+											],
+											"query": [
+												{
+													"key": "birthDate",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Получение пациентов по фильтру birthDate: le",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/Patients?birthDate=le2023-01-16",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Patients"
+									],
+									"query": [
+										{
+											"key": "birthDate",
+											"value": "le2023-01-16"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Список пациентов",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Patients?birthDate=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Patients"
+											],
+											"query": [
+												{
+													"key": "birthDate",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"name\": {\n      \"id\": \"<uuid>\",\n      \"use\": \"<string>\",\n      \"family\": \"<string>\",\n      \"given\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"gender\": \"<string>\",\n    \"birthDate\": \"<dateTime>\",\n    \"active\": \"<boolean>\"\n  },\n  {\n    \"name\": {\n      \"id\": \"<uuid>\",\n      \"use\": \"<string>\",\n      \"family\": \"<string>\",\n      \"given\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"gender\": \"<string>\",\n    \"birthDate\": \"<dateTime>\",\n    \"active\": \"<boolean>\"\n  }\n]"
+								},
+								{
+									"name": "Неверный формат параметра",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Patients?birthDate=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Patients"
+											],
+											"query": [
+												{
+													"key": "birthDate",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Внутренняя ошибка сервера",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Patients?birthDate=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Patients"
+											],
+											"query": [
+												{
+													"key": "birthDate",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Получение пациентов по фильтру birthDate: ap",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/Patients?birthDate=ap2023-01-15",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Patients"
+									],
+									"query": [
+										{
+											"key": "birthDate",
+											"value": "ap2023-01-15"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Список пациентов",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Patients?birthDate=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Patients"
+											],
+											"query": [
+												{
+													"key": "birthDate",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"name\": {\n      \"id\": \"<uuid>\",\n      \"use\": \"<string>\",\n      \"family\": \"<string>\",\n      \"given\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"gender\": \"<string>\",\n    \"birthDate\": \"<dateTime>\",\n    \"active\": \"<boolean>\"\n  },\n  {\n    \"name\": {\n      \"id\": \"<uuid>\",\n      \"use\": \"<string>\",\n      \"family\": \"<string>\",\n      \"given\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"gender\": \"<string>\",\n    \"birthDate\": \"<dateTime>\",\n    \"active\": \"<boolean>\"\n  }\n]"
+								},
+								{
+									"name": "Неверный формат параметра",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Patients?birthDate=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Patients"
+											],
+											"query": [
+												{
+													"key": "birthDate",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Внутренняя ошибка сервера",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Patients?birthDate=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Patients"
+											],
+											"query": [
+												{
+													"key": "birthDate",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Получение пациентов по фильтру birthDate: sa",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/Patients?birthDate=sa2023-01-15",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Patients"
+									],
+									"query": [
+										{
+											"key": "birthDate",
+											"value": "sa2023-01-15"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Список пациентов",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Patients?birthDate=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Patients"
+											],
+											"query": [
+												{
+													"key": "birthDate",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"name\": {\n      \"id\": \"<uuid>\",\n      \"use\": \"<string>\",\n      \"family\": \"<string>\",\n      \"given\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"gender\": \"<string>\",\n    \"birthDate\": \"<dateTime>\",\n    \"active\": \"<boolean>\"\n  },\n  {\n    \"name\": {\n      \"id\": \"<uuid>\",\n      \"use\": \"<string>\",\n      \"family\": \"<string>\",\n      \"given\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"gender\": \"<string>\",\n    \"birthDate\": \"<dateTime>\",\n    \"active\": \"<boolean>\"\n  }\n]"
+								},
+								{
+									"name": "Неверный формат параметра",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Patients?birthDate=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Patients"
+											],
+											"query": [
+												{
+													"key": "birthDate",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Внутренняя ошибка сервера",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Patients?birthDate=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Patients"
+											],
+											"query": [
+												{
+													"key": "birthDate",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Получение пациентов по фильтру birthDate: eb",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/Patients?birthDate=eb2023-01-15",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Patients"
+									],
+									"query": [
+										{
+											"key": "birthDate",
+											"value": "eb2023-01-15"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Список пациентов",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Patients?birthDate=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Patients"
+											],
+											"query": [
+												{
+													"key": "birthDate",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"name\": {\n      \"id\": \"<uuid>\",\n      \"use\": \"<string>\",\n      \"family\": \"<string>\",\n      \"given\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"gender\": \"<string>\",\n    \"birthDate\": \"<dateTime>\",\n    \"active\": \"<boolean>\"\n  },\n  {\n    \"name\": {\n      \"id\": \"<uuid>\",\n      \"use\": \"<string>\",\n      \"family\": \"<string>\",\n      \"given\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"gender\": \"<string>\",\n    \"birthDate\": \"<dateTime>\",\n    \"active\": \"<boolean>\"\n  }\n]"
+								},
+								{
+									"name": "Неверный формат параметра",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Patients?birthDate=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Patients"
+											],
+											"query": [
+												{
+													"key": "birthDate",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Внутренняя ошибка сервера",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Patients?birthDate=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Patients"
+											],
+											"query": [
+												{
+													"key": "birthDate",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080"
+		},
+		{
+			"key": "patient_id",
+			"value": ""
+		}
+	]
+}
