@@ -1,3 +1,4 @@
-"# NewbornRegistry" 
-"# NewbornRegistry" 
-"# NewbornRegistry" 
+1. Нужно создать файл ".env" на основе ".env.example" в папке где лежит docker-compose файл).
+2. Засетать свои значения для переменных (в частности пароль).
+3. Вызвать "cmd" в папке, где лежит docker-compose файл.
+4. Выполнить "docker-compose up --build".
